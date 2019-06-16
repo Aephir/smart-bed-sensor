@@ -9,7 +9,7 @@ For dummies (using PlatformIO in atom editor):
 3. Run `./build_and_deploy.sh`
 
 When defining pins in config.h, use the GPIO#:
-D0 = 16
+D0 = 16 \n
 D1 =  5
 D2 =  4
 D3 =  0
