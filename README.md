@@ -7,3 +7,15 @@ For dummies (using PlatformIO in atom editor):
   a. pins:
 2. Open a new PlatformIO terminal and navigate to your project.
 3. Run `./build_and_deploy.sh`
+
+When defining pins in config.h, use the GPIO#:
+D0 = 16
+D1 =  5
+D2 =  4
+D3 =  0
+D4 =  2
+D5 = 14
+D6 = 12
+D7 = 13
+D8 = 15
+See [this overview](https://www.instructables.com/id/NodeMCU-ESP8266-Details-and-Pinout/).
