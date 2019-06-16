@@ -18,4 +18,5 @@ When defining pins in config.h, use the GPIO#:
 - D6 = 12
 - D7 = 13
 - D8 = 15
+
 See [this overview](https://www.instructables.com/id/NodeMCU-ESP8266-Details-and-Pinout/).
