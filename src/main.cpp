@@ -16,8 +16,8 @@ void reconnect() {
     while (!client.connected()) {
         Serial.print("Attempting MQTT connection...");
         // Attempt to connect
-        if (client.connect(HOSTNAME)) {
-            Serial.println("connected", "MQTT_username", "MQTT_password"); // Make sure to change "MQTT_username", "MQTT_password" to actual username/password
+        if (client.connect(HOSTNAME, "MQTT_username", "MQTT_password")) {  // Make sure to change "MQTT_username", "MQTT_password" to actual username/password
+            Serial.println("connected");
             // Once connected, publish an announcement...
             client.publish(AVAILABILITY_TOPIC, "online");
         } else {
