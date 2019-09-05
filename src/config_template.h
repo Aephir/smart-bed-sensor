@@ -1,9 +1,10 @@
 #define SSID                          "<SSID>"
-#define PASSWORD                      "<PASSWORD>"
+#define PASSWORD                      "<WIFI_PASSWORD>"
 
 // MQTT Settings
 #define HOSTNAME                      "esp8266-master-bed"
-#define MQTT_SERVER                   "<MQTT_SERVER>"
+#define MQTT_SERVER                   "<MQTT_SERVER_IP>"
+#define MQTT_PORT                     <MQTT_PORT>
 #define STATE_TOPIC                   "home/bedroom/bed"
 #define AVAILABILITY_TOPIC            "home/bedroom/bed/available"
 
