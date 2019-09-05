@@ -1,5 +1,7 @@
 # smart-bed-sensor
-DIY Smart Bed using Load Cells and HX711 (https://selfhostedhome.com/diy-bed-presence-detection-home-assistant/)
+DIY Smart Bed using Load Cells and HX711 (https://selfhostedhome.com/diy-bed-presence-detection-home-assistant/). 
+Above guide didn't work completely, but with new PubSubClient and a few edits (implemented in this repo) it works.
+See http://www.arjunsk.com/iot/esp8266-programming-cloud-mqtt-part-3/ for more examples for new PubSubClient.
 
 For dummies (using PlatformIO in atom editor):
 
