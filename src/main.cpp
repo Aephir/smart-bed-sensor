@@ -2,9 +2,13 @@
 #include <ArduinoOTA.h>
 #include <ESP8266WiFi.h>
 #include <HX711.h>
-#include <PubSubClient.h>
-
+#include <PubSubClient.h> // This one: https://github.com/knolleary/pubsubclient/
 #include "config.h"
+
+const char* mqtt_server = "<MY_MQTT_SERVER_IP>";
+const int mqtt_port = <MQQT_PORT>;
+const char* mqtt_user = "<MQTT_USERNAME>";
+const char* mqtt_pass = "<MQTT_PASSWORD>";
 
 WiFiClient wifiClient;
 PubSubClient client(wifiClient);
@@ -13,21 +17,21 @@ HX711 scale(HX711_DT, HX711_SCK);
 
 void reconnect() {
     // Loop until we're reconnected
-    while (!client.connected()) {
-        Serial.print("Attempting MQTT connection...");
-        // Attempt to connect
-        if (client.connect(HOSTNAME, "MQTT_username", "MQTT_password")) {  // Make sure to change "MQTT_username", "MQTT_password" to actual username/password
-            Serial.println("connected");
-            // Once connected, publish an announcement...
-            client.publish(AVAILABILITY_TOPIC, "online");
-        } else {
-            Serial.print("failed, rc=");
-            Serial.print(client.state());
-            Serial.println(" try again in 5 seconds");
-            // Wait 5 seconds before retrying
-            delay(5000);
-        }
+  while (!client.connected()) {
+    Serial.println("Connecting to MQTT...");
+
+    if (client.connect(HOSTNAME, mqtt_user, mqtt_pass )) {
+
+      Serial.println("connected");
+
+    } else {
+
+      Serial.print("failed with state ");
+      Serial.print(client.state());
+      delay(2000);
+
     }
+  }
 }
 
 void setupOTA() {
@@ -74,7 +78,7 @@ void setup() {
     Serial.print("Connected, IP address: ");
     Serial.println(WiFi.localIP());
 
-    client.setServer(MQTT_SERVER, 1883);
+    client.setServer(MQTT_SERVER, MQTT_PORT);
 
     setupOTA();
 
